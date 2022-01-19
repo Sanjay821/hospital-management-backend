@@ -1,5 +1,6 @@
 package com.assessment.hospital.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +35,13 @@ public class DoctorController {
 
 	@GetMapping("/getdoctor")
 	public ResponseEntity<List<String>> getAllDoctor() {
-		List<String> allDoctor = doctorService.getAllDoctor();
-		return ResponseEntity.ok(allDoctor);
+		List<String> allDoctor = doctorService.getAllDoctor();	
+		List<String> specialization = doctorService.getAllSpecialization();
+		List<String> doctor = new ArrayList<String>();
+		for (int i = 0; i < allDoctor.size(); i++) {
+			doctor.add(allDoctor.get(i)+"["+specialization.get(i)+"]");
+		}
+		return ResponseEntity.ok(doctor);
 	}
 	
 	@GetMapping("/getdoctorspec")
