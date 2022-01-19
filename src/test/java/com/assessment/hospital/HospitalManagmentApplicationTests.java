@@ -64,7 +64,13 @@ class DoctorTest {
 		names.add("Sanjay");
 		names.add("Bhupal");
 		names.add("Arun");
+		
+		List<String> specialization = new ArrayList<>();
+		specialization.add("Dentist");
+		specialization.add("Cardiologist");
+		specialization.add("Radiologists");
 		Mockito.when(doctorService.getAllDoctor()).thenReturn(names);
+		Mockito.when(doctorService.getAllSpecialization()).thenReturn(specialization);
 		mockMvc.perform(get("http://localhost:8282/doctor/getdoctor")).andExpect(status().isOk());
 	}
 	

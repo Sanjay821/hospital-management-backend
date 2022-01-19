@@ -1,7 +1,7 @@
 FROM openjdk:8
 
-ADD target/Hospital-Managment.jar Hospital-Managment.jar
+ADD target/Hospital-Management.jar Hospital-Management.jar
 
 EXPOSE 8282
 
-ENTRYPOINT ["java","-jar","/Hospital-Managment.jar"]
+ENTRYPOINT ["java","-jar","/Hospital-Management.jar"]
