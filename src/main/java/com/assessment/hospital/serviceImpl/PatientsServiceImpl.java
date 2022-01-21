@@ -19,8 +19,7 @@ public class PatientsServiceImpl implements PatientsService {
 
 	@Override
 	public Patients addPatients(Patients patient) {
-		
-		return patientRepository.save(patient);
+			return patientRepository.save(patient);
 	}
 
 	@Override
@@ -36,5 +35,20 @@ public class PatientsServiceImpl implements PatientsService {
 	@Override
 	public int getcount(Doctor doc) {
 		return patientRepository.countDoctorByName(doc);
+	}
+
+	@Override
+	public Patients updatePatients(Patients patient) {
+		return patientRepository.save(patient);
+	}
+
+	@Override
+	public boolean deletePatient(long id) {
+		if (patientRepository.findById(id) != null) {
+			patientRepository.deleteById(id);
+			return true;
+		}
+		else
+			return false;
 	}
 }

@@ -16,4 +16,8 @@ public interface PatientsService {
 
 	int getcount(Doctor doc);
 
+	Patients updatePatients(Patients patient);
+
+	boolean deletePatient(long id);
+
 }

@@ -10,4 +10,6 @@ public interface PatientsRepository extends JpaRepository<Patients, Long> {
 
 	@Query("Select count(p.doc) from Patients p where p.doc=?1")
 	int countDoctorByName(Doctor doc);
+	
+	Patients findByName(String name);
 }

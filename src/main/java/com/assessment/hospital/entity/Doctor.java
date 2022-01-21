@@ -34,7 +34,7 @@ public class Doctor {
 	@Column(name = "doc_specialization")
 	private String specialization;
 	
-	@OneToMany(mappedBy = "doc")
+	@OneToMany( mappedBy = "doc")
 	@JsonBackReference
 	private List<Patients> patient;
 	

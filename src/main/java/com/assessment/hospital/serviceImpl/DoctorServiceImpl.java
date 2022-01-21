@@ -56,8 +56,16 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public Doctor updateDoctor(Doctor doctor) {
-		Doctor savedDoctor = doctorRepository.save(doctor);
-		return savedDoctor;
+		if(doctorRepository.findByName(doctor.getName()) != null) {
+			long id = doctorRepository.count()+1;
+			doctor.setName(doctor.getName()+"(id"+id+")");
+			Doctor savedDoctor = doctorRepository.save(doctor);
+			return savedDoctor;
+		}
+		else {
+		 Doctor savedDoctor = doctorRepository.save(doctor);
+		 return savedDoctor;
+		}
 	}
 
 	@Override

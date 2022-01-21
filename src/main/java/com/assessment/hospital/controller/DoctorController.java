@@ -60,6 +60,10 @@ public class DoctorController {
 
 	@GetMapping("/getdoctorbyname/{name}")
 	public ResponseEntity<?> getByName(@PathVariable("name") String docName) {
+		docName.trim();
+		if(docName.endsWith(" "))
+			docName.strip();
+		
 		Doctor doc = doctorService.getByName(docName);
 		return ResponseEntity.ok(doc);
 	}
