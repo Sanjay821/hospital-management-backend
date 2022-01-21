@@ -53,4 +53,19 @@ public class DoctorServiceImpl implements DoctorService {
 		List<String> specialization = doctorRepository.findAllBySpecialization();
 		return specialization;
 	}
+
+	@Override
+	public Doctor updateDoctor(Doctor doctor) {
+		Doctor savedDoctor = doctorRepository.save(doctor);
+		return savedDoctor;
+	}
+
+	@Override
+	public boolean deleteDoctor(long id) {
+		if (doctorRepository.findById(id) != null) {
+			doctorRepository.deleteById(id);
+			return true;
+		}
+		return false;
+	}
 }

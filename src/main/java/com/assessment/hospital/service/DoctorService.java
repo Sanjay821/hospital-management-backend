@@ -17,4 +17,8 @@ public interface DoctorService {
 
 	List<String> getAllSpecialization();
 
+	Doctor updateDoctor(Doctor doctor);
+
+	boolean deleteDoctor(long id);
+
 }
